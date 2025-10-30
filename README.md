@@ -1,3 +1,5 @@
+# **WORK IN PROGRESS**
+
 ## Purpose
 There is no way to track who uses both of their allotted attacks in Clash of Clans clan wars. I created this project to pull the current war data from the Clash of Clans API, store it in a DynamoDB table, and provide users with insights on who is the consistently attacking in clan wars. 
 
