@@ -1,0 +1,27 @@
+/*
+  File: src/reset.css
+  Purpose: Small global tweaks for fonts and background flair beyond MUI baseline.
+           Also registers the Clash Regular and Clash Bold fonts via @font-face.
+*/
+
+/* Register Supercell Clash fonts (served from /public/fonts). */
+@font-face {
+  font-family: 'Clash';
+  src: url('/fonts/Clash_Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Clash';
+  src: url('/fonts/Clash_Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+html, body, #root { height: 100%; }
+body {
+  background: #ffffff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

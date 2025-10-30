@@ -1,0 +1,185 @@
+/*
+  File: styles.css
+  Purpose: Centralized stylesheet for the War Recommender frontend. Implements
+           a modern, responsive, and accessible UI with a clean color palette,
+           a gradient header, and a data table optimized for readability.
+  Notes:  Uses CSS variables for easy theming. No frameworks required.
+*/
+
+/* Root theme variables for easy customization */
+:root {
+  --bg: #0b1020;           /* App background (dark indigo) */
+  --surface: #0f1630;      /* Card surface */
+  --surface-2: #121a3a;    /* Alternate surface */
+  --text: #e6ecff;         /* Primary text */
+  --muted: #9fb0ff;        /* Secondary text */
+  --primary: #6ea8fe;      /* Accent color */
+  --primary-strong: #4f8dff; /* Accent stronger */
+  --success: #37d67a;
+  --warn: #ffcc00;
+  --danger: #ff6b6b;
+  --border: #223061;
+  --ring: rgba(110, 168, 254, 0.5);
+  --shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Base reset and typography */
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: radial-gradient(1200px 800px at 10% 0%, #1a234c, transparent 60%),
+              radial-gradient(1000px 600px at 100% 10%, #0f1740, transparent 40%),
+              var(--bg);
+  color: var(--text);
+}
+
+.container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header styles */
+.app-header {
+  background: linear-gradient(135deg, #141d48, #09102a);
+  border-bottom: 1px solid var(--border);
+  padding: 40px 0 28px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.header-inner { position: relative; z-index: 1; }
+
+.brand { display: flex; align-items: center; gap: 12px; }
+.brand .logo { font-size: 28px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4)); }
+.brand h1 { margin: 0; font-size: 28px; letter-spacing: 0.2px; }
+
+.tagline { color: var(--muted); margin: 10px 0 16px 0; }
+
+/* Search form */
+.search { margin-top: 12px; }
+.input-row { display: flex; gap: 10px; align-items: center; }
+
+input[type="text"] {
+  width: 100%;
+  padding: 14px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  outline: none;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+input[type="text"]:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px var(--ring);
+}
+
+.btn {
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  color: var(--text);
+  padding: 12px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.05s ease, background 0.2s ease, border-color 0.2s ease;
+}
+.btn:hover { transform: translateY(-1px); border-color: var(--primary); }
+.btn:active { transform: translateY(0); }
+
+.btn.primary {
+  background: linear-gradient(180deg, var(--primary), var(--primary-strong));
+  border-color: transparent;
+  color: #07122b;
+  font-weight: 700;
+}
+
+.btn.link {
+  background: transparent;
+  border: none;
+  color: var(--primary);
+  padding: 0;
+}
+
+.help-row { color: var(--muted); margin-top: 8px; display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+
+/* Alerts and loading */
+.alert {
+  background: rgba(255, 107, 107, 0.12);
+  color: #ffc0c0;
+  border: 1px solid rgba(255, 107, 107, 0.3);
+  padding: 12px 14px;
+  border-radius: 10px;
+  margin: 18px 0;
+}
+
+.loading { display: flex; align-items: center; gap: 10px; margin: 20px 0; }
+.spinner {
+  width: 18px; height: 18px; border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.25);
+  border-top-color: #fff;
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.hidden { display: none !important; }
+
+/* Summary */
+.summary { margin: 4px 0 12px 0; color: var(--muted); }
+.summary strong { color: var(--text); }
+
+/* Card / table container */
+.card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+}
+.table-wrap { overflow: auto; border-radius: 14px; }
+
+/* Data table */
+.table { width: 100%; border-collapse: collapse; min-width: 760px; }
+.table thead th {
+  position: sticky; top: 0; z-index: 2;
+  background: #0e1632; /* Slightly different to create contrast */
+  border-bottom: 1px solid var(--border);
+  text-align: left; font-weight: 600; padding: 14px 14px; font-size: 14px; color: var(--muted);
+  user-select: none; cursor: pointer;
+}
+.table thead th:hover { color: var(--text); }
+.table tbody td {
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  padding: 14px 14px; font-size: 15px;
+}
+.table tbody tr:hover { background: rgba(255,255,255,0.03); }
+
+/* Badges for status numbers */
+.badge {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 28px; padding: 4px 8px; border-radius: 999px;
+  font-size: 12px; font-weight: 700; letter-spacing: 0.2px;
+}
+.badge.success { background: rgba(55,214,122,0.15); color: #a6f4c5; border: 1px solid rgba(55,214,122,0.35); }
+.badge.warn { background: rgba(255,204,0,0.12); color: #ffe899; border: 1px solid rgba(255,204,0,0.3); }
+.badge.danger { background: rgba(255,107,107,0.12); color: #ffc0c0; border: 1px solid rgba(255,107,107,0.3); }
+
+/* Footer */
+.footer { color: var(--muted); text-align: center; padding: 28px 0 40px 0; }
+
+/* Accessibility helpers */
+.visually-hidden {
+  position: absolute !important;
+  height: 1px; width: 1px;
+  overflow: hidden; clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap; border: 0; padding: 0; margin: -1px;
+}
+
+/* Responsive tweaks */
+@media (max-width: 640px) {
+  .btn.primary { padding: 12px; }
+  .brand h1 { font-size: 22px; }
+  .tagline { font-size: 14px; }
+}
