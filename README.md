@@ -25,16 +25,18 @@ In clan wars, players get two attacks, and the game makes it hard to track who c
 - Better UI for filtering and per-clan views
 
 ## Tech Stack
-- Frontend:
+- **Frontend**:
   - JavaScript (Vite), HTML, CSS
-- Backend (Serverless on AWS):
+- **Backend** (Serverless on AWS):
   - AWS Lambda (Python)
   - Amazon API Gateway
   - Amazon DynamoDB
   - VPC for networking
-- Integrations:
+- **Integrations**:
   - Clash of Clans API
- 
+- **AI Assistance**:
+  - ChatGPT for ideation, debugging, and content refinement
+
 
 
 
