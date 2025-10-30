@@ -1,15 +1,40 @@
-# **WORK IN PROGRESS**
+# Clash of Clans Clan War Recommender (WIP)
+A tool to identify your clan’s most valuable attackers in Clash of Clans by tracking war participation and performance. The website pulls current war data from the Clash of Clans API, stores history in DynamoDB, and provides recommendations on who is the most effective.
 
-## Purpose
-There is no way to track who uses both of their allotted attacks in Clash of Clans clan wars. I created this project to pull the current war data from the Clash of Clans API, store it in a DynamoDB table, and provide users with insights on who is the consistently attacking in clan wars. 
+Status: Work in Progress
 
-## How to use
-Run a clan update before you start a war to ensure that the last war's information is stored. Then you will get recommendations on who the most valuable attackers in the clan are. 
+## Why
+In clan wars, players get two attacks, and the game makes it hard to track who consistently uses both and delivers the most value. This project:
+- Aggregates war participation and performance
+- Stores per-player, per-clan history
+- Provides recommendations on who to prioritize for war attacks
 
-Currently not deployed publically, but I plan to host on vercel soon. 
+## Usage Tips
+- Run a “clan update” before starting a war so the previous war’s data is stored
+
+## Features
+- Pull current war data from the Clash of Clans API
+- Store player war history by clan in DynamoDB
+- REST endpoints for recommendations and history updates
+- Single page Vite-powered frontend to visualize recommendations
+- Serverless deployment on AWS
+
+## Roadmap
+- Public deployment (planned: Vercel for frontend)
+- Auth and rate limiting
+- Better UI for filtering and per-clan views
 
 ## Tech Stack
+- Frontend:
+  - JavaScript (Vite), HTML, CSS
+- Backend (Serverless on AWS):
+  - AWS Lambda (Python)
+  - Amazon API Gateway
+  - Amazon DynamoDB
+  - VPC for networking
+- Integrations:
+  - Clash of Clans API
+ 
 
-Frontend:React and Vite single page app
 
-Backend: AWS
+
