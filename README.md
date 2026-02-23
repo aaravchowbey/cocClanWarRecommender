@@ -2,6 +2,7 @@
 A tool to identify your clan’s most valuable attackers in Clash of Clans by tracking war participation and performance. The website pulls current war data from the Clash of Clans API, stores history in DynamoDB, and provides recommendations on who is the most effective.
 
 Status: Work in Progress
+### Currently not deployed because of AWS costs. May explore self hosting this in the future.
 
 ## Why
 In clan wars, players get two attacks, and the game makes it hard to track who consistently uses both and delivers the most value. This project:
